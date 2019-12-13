@@ -23,15 +23,15 @@ class CurrencyConverter extends Component {
             }
         })
     }
-    handleOptionSelect = (evt) => {
-        const userValue = evt.target.value 
-        this.setState(() => {
-            return {
-                selectedCurrency: userValue,
-                currencyChosen: userValue === 'Select Currency' ? false : true
-            }
-        })
-    }
+    handleOptionSelect = (event) => {
+		const userValue = event.target.value
+		this.setState(() => {
+			return {
+				selectedCurrency: userValue,
+				currencyChosen: userValue === 'Select Currency' ? false : true
+			}
+		})
+	}
 
     render(){
         const currencyData = [
@@ -58,7 +58,14 @@ class CurrencyConverter extends Component {
                 <button className='add' onClick={this.state.handleAmountIncrease}>+</button>
                 <button className='minus' onClick={this.state.handleAmountDecrease}>-</button>
             </div>
-            {this.state.currencyChosen ? (this.props.render(currencyData[this.state.selectedCurrency], this.state.amount)): (<p>Please Select Currency</p>)}
+            {this.state.currencyChosen ? (
+					this.props.render(
+						currencyData[this.state.selectedCurrency],
+						this.state.amount
+					)
+				) : (
+					<p>Please Select Currency</p>
+				)}
             </div>
     )
     }

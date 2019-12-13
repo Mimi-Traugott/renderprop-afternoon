@@ -1,4 +1,5 @@
 import React from 'react'
+import CurrencyConverter from './CurrencyConverter'
 
 const CurrencyDisplay = (props) => (
 	<p>
